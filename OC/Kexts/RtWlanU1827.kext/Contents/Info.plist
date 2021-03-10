@@ -1412,7 +1412,9 @@
 			<key>IOKitDebug</key>
 			<integer>65535</integer>
 			<key>IOProviderClass</key>
-			<string>IOUSBInterface</string>
+			<string>IOPCIDevice</string>
+			<key>IOPCIMatch</key>
+			<string>0x817810ec</string>
 			<key>bConfigurationValue</key>
 			<integer>1</integer>
 			<key>bInterfaceNumber</key>
