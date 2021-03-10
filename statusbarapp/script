@@ -1,6 +1,20 @@
 #!/bin/sh
-# By chris1111
-#
+
+rm -rf /Library/Application\ Support/WLAN
+
+echo "mkdir WLAN"
+mkdir /Library/Application\ Support/WLAN
+mkdir /Library/Application\ Support/WLAN/com.realtek.utility.wifi
+
+echo "Chmod WLAN"
+chmod -R 777 /Library/Application\ Support/WLAN
+
+echo "Chown WLAN"
+chown -R root:wheel /Library/Application\ Support/WLAN
+
+echo "PreInstall_UI Complete."
+
+cp -R installerFiles.zip StatusBarApp.app RtWlanHelper /Library/Application\ Support/WLAN
 
 . /etc/rc.common
 
@@ -95,13 +109,13 @@ chmod -R 555 $LAUNCH_AGENT_PLIST
 # Load the new LaunchAgent.
 /bin/launchctl unload "$LAUNCH_AGENT_PLIST"
 
-#/bin/launchctl load "$LAUNCH_AGENT_PLIST"
 # using launchctl to execute utility, would generate UTILITY_SOCK_NAME(srwxr-xr-x root:wheel)
 # after reboot. Utility start socketServer failed.
 # chmod 777 is not work.
 # [MACOS-15]
-open -a "$ROOT_PATH/$APP.app"
+open "$ROOT_PATH/$APP.app"
 chmod -R 777 $UTILITY_SOCK_NAME
+/bin/launchctl load "$LAUNCH_AGENT_PLIST"
 
 
 # Check LaunchAgent is loaded.
