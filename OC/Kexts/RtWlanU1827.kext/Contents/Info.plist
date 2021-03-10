@@ -1403,6 +1403,27 @@
 			<key>idVendor</key>
 			<integer>3034</integer>
 		</dict>
+		<key>RTL8192CE_8178</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.realtek.driver.RtWlanU1827</string>
+			<key>IOClass</key>
+			<string>RtWlanU1827</string>
+			<key>IOKitDebug</key>
+			<integer>65535</integer>
+			<key>IOProviderClass</key>
+			<string>IOUSBInterface</string>
+			<key>bConfigurationValue</key>
+			<integer>1</integer>
+			<key>bInterfaceNumber</key>
+			<integer>0</integer>
+			<key>bcdDevice</key>
+			<integer>512</integer>
+			<key>idProduct</key>
+			<integer>33144</integer>
+			<key>idVendor</key>
+			<integer>4332</integer>
+		</dict>
 		<key>RTL8192CU_8178</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
