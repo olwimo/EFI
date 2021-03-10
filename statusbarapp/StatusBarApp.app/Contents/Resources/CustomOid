@@ -1,0 +1,191 @@
+#ifndef	__CUSTOM_OID_H
+#define __CUSTOM_OID_H
+
+#define OID_802_3_CURRENT_ADDRESS               0x01010102
+#define OID_GEN_MEDIA_CONNECT_STATUS            0x00010114
+//
+// IEEE 802.11 OIDs
+//
+#define OID_802_11_BSSID                        0x0D010101
+#define OID_802_11_SSID                         0x0D010102
+#define OID_802_11_NETWORK_TYPES_SUPPORTED      0x0D010203
+#define OID_802_11_NETWORK_TYPE_IN_USE          0x0D010204
+#define OID_802_11_TX_POWER_LEVEL               0x0D010205
+#define OID_802_11_RSSI                         0x0D010206
+#define OID_802_11_RSSI_TRIGGER                 0x0D010207
+#define OID_802_11_INFRASTRUCTURE_MODE          0x0D010108
+#define OID_802_11_FRAGMENTATION_THRESHOLD      0x0D010209
+#define OID_802_11_RTS_THRESHOLD                0x0D01020A
+#define OID_802_11_NUMBER_OF_ANTENNAS           0x0D01020B
+#define OID_802_11_RX_ANTENNA_SELECTED          0x0D01020C
+#define OID_802_11_TX_ANTENNA_SELECTED          0x0D01020D
+#define OID_802_11_SUPPORTED_RATES              0x0D01020E
+#define OID_802_11_DESIRED_RATES                0x0D010210
+#define OID_802_11_CONFIGURATION                0x0D010211
+#define OID_802_11_STATISTICS                   0x0D020212
+#define OID_802_11_ADD_WEP                      0x0D010113
+#define OID_802_11_REMOVE_WEP                   0x0D010114
+#define OID_802_11_DISASSOCIATE                 0x0D010115
+#define OID_802_11_POWER_MODE                   0x0D010216
+#define OID_802_11_BSSID_LIST                   0x0D010217
+#define OID_802_11_AUTHENTICATION_MODE          0x0D010118
+#define OID_802_11_PRIVACY_FILTER               0x0D010119
+#define OID_802_11_BSSID_LIST_SCAN              0x0D01011A
+#define OID_802_11_WEP_STATUS                   0x0D01011B
+#define OID_802_11_RELOAD_DEFAULTS              0x0D01011C
+#define OID_802_11_TEST							0x0D010120	//HCT12.0
+#define OID_802_11_CAPABILITY					0x0D010122	//HCT12.0
+#define OID_802_11_PMKID						0x0D010123	//HCT12.0
+//3*****************************************************************************************************
+//3 0xFF818000 - 0xFF81802F		RTL81xx Mass Production Kit
+//3 0xFF818500 - 0xFF81850F		RTL8185 Setup Utility
+//3 0xFF818580 - 0xFF81858F		RTL8185 Phy Status Utility
+//3 0xFF818700 - 0xFF8187FF		RTL8187 related
+//3 0xFF819000 - 0xFF8190FF		RTL8190 related
+
+// by Owen for Production Kit
+//3 For Production Kit with Agilent Equipments
+//3 in order to make our custom oids hopefully somewhat unique
+//3 we will use 0xFF (indicating implementation specific OID)
+//3               		81(first byte of non zero Realtek unique identifier)
+//3	        80 (second byte of non zero Realtek unique identifier)
+//3               		XX (the custom OID number - providing 255 possible custom oids)
+
+//3*****************************************************************************************************
+#define 	OID_RT_SET_CHANNEL								0xFF010182
+#define 	OID_RT_ENCRYPTION_ALGORITHM						0xFF010194
+#define 	OID_RT_GET_PREAMBLE_MODE						0xFF010196
+#define 	OID_RT_GET_CHANNELPLAN							0xFF010199
+#define 	OID_RT_SET_PREAMBLE_MODE						0xFF01019A
+#define 	OID_RT_GET_CHANNEL								0xFF0101AC
+#define 	OID_RT_SET_CHANNELPLAN							0xFF0101AD
+#define 	OID_RT_GET_HARDWARE_RADIO_OFF					0xFF0101AE
+#define 	OID_RT_GET_HARDWARE_VERSION						0xFF0101B1
+#define 	OID_RT_SUPPORTED_WIRELESS_MODE					0xFF0101BB
+#define 	OID_RT_GET_CHANNEL_LIST							0xFF0101BC
+#define 	OID_RT_GET_SCAN_IN_PROGRESS						0xFF0101BD
+
+// Send specific 802.11 frame for developing and verification purpose.
+#define 	OID_RT_SEND_SPECIFIC_PACKET   					0xFF0101C8
+
+#define 	OID_RT_SimpleConfScan							0xFF0101D0
+
+#define 	OID_RT_WPS_RECIEVE_PACKET						0xFF0101DE
+
+// For PSP XLink status.
+#define 	OID_RT_GET_PSP_XLINK_STATUS						0xFF0101CF
+#define 	OID_RT_SET_PSP_XLINK_STATUS						0xFF0101E0
+#define 	OID_RT_GET_WMM_ENABLE							0xFF0101E1
+#define 	OID_RT_SET_WMM_ENABLE							0xFF0101E2
+
+// AP OID
+#define 	OID_RT_AP_GET_ASSOCIATED_STATION_LIST			0xFF010300
+#define 	OID_RT_AP_SWITCH_INTO_AP_MODE					0xFF010302
+#define 	OID_RT_AP_SET_PASSPHRASE						0xFF010305	// Set WPA-PSK passphrase into authenticator. 2005.07.08, byrcnjko.
+
+//
+//For MacOSX 10.4.0 "Network Utility" LinkSpeed workaround
+#define 	OID_RT_SET_TIGER_WORKAROUND						0xFF010413
+//For MacOSX UI
+#define 	OID_RT_COUNTRY_NOT_SUPPORT_AC					0xFF010414
+#define 	OID_RT_SET_BEAMFORM_CAP							0xFF010415
+#define 	OID_RT_GET_DRIVER_VERSION						0xFF010416
+#define 	OID_RT_SET_PHY_ADAPTIVITY						0xFF010417
+#define		OID_RT_NETWORK_STATUS							0xFF010418
+#define		OID_RT_GET_BSS_NUMBER							0xFF010419
+#define		OID_RT_SHAREDKEY_AUTHENTICATION					0xFF01041A
+#define		OID_RT_SCAN_SSID_AND_LINK						0xFF01041B
+#define     OID_RT_SET_SYSTEM_HIBERNATEMODE                 0xFF01041C //{5.0.5.b7}
+#define     OID_RT_GET_DRIVER_WPA3_SUPPORT                  0xFF01041D
+
+#define 	OID_RT_FRAGMENTATION_THRESHOLD					0xFF010603
+#define 	OID_RT_RTS_THRESHOLD							0xFF010604
+
+
+#define 	OID_RT_SET_DEFAULT_KEY_ID              		 	0xFF030004
+#define 	OID_RT_GET_DEFAULT_KEY_ID						0xFF030004
+
+#define		OID_RT_RF_OFF									0xFF818081
+
+#define		OID_RT_WIRELESS_MODE							0xFF818500
+
+// by CYC added data: 2018/03/26
+#define     OID_RT_SET_REG_BY_INF                           0xFF818505 ///// Add OID by CYC
+#define     OID_RT_GET_REG_VALUE                            0xFF818506 ///// Add OID by CYC
+//3 --------------------------------------------------------------------
+//3 		0xFF8190xx: 8190 related
+//3--------------------------------------------------------------------
+#define 	OID_RT_11N_BANDWIDTH_MODE						0xFF81900D
+
+#define 	OID_RT_11N_UI_SHOW_RX_RATE			  			0xFF81901D   //For show the smooth 11n Rx Rate to normal user
+
+#define 	OID_RT_11N_TX_LINK_SPEED						0xFF819021  //For Real 11n Tx Rate
+#define 	OID_RT_11N_RX_LINK_SPEED						0xFF819022  //For Real 11n Rx Rate
+
+// 2008-03-11 Add by hpfan for support hardware PBC
+#define 	OID_RT_WPS_HWSET_PBC_PRESSED					0XFF819028
+#define 	OID_RT_WPS_HWGET_PBC_PRESSED					0XFF819029
+// 2008-03-20 Add by hpfan for support  WPS LED control
+#define 	OID_RT_WPS_LED_CTL_START						0xFF81902A
+#define 	OID_RT_11N_UI_SHOW_TX_RATE						0xFF81902B  //For show the smooth 11n Tx Rate to normal user
+
+#define 	OID_RT_11N_CURRENT_BANDWIDTH					0xFF819035
+
+//For MacOSX UI
+#define 	OID_RT_11N_SHORT_GI								0xFF819046
+#define 	OID_RT_11N_MCS_RATE								0xFF819047
+#define 	OID_RT_SUPPLICANT_FAIL_CODE						0xFF819048
+
+//
+
+// 11ac USB 2.0/3.0 switch mechanism
+// This mechanism shall be operate with UI
+#define	OID_RT_UMR_QUERY_SWITCH_CHECK							0xFF819050
+#define	OID_RT_UMR_QUERY_SWITCH_CONFIRM							0xFF819051
+#define	OID_RT_UMR_SET_BSSID_TO_CONNECT_FOR_SWITCH_CHECK		0xFF819052
+#define	OID_RT_UMR_QUERY_USB_MODE_SUGGESTION					0xFF819053
+#define	OID_RT_UMR_SET_FORCED_USB_MODE							0xFF819054
+#define	OID_RT_UMR_QUERY_CURRENT_USB_MODE						0xFF819055
+#define	OID_RT_UMR_SET_USB_HOST_CAPABILITY 						0xFF819056
+
+#define 	OID_RT_PRO_CUSTOMER_POWER_TABLE_RESET               0xFF81809B // CYC ADD
+//ShienChang: OID mapping for WinXP style 802.11 OID
+//Scope: 0xFF070101 ~ 0xFF0702FF
+#define 	RT_80211_START								0xFF070000
+#define 	OID_RT_802_11_BSSID						( RT_80211_START | OID_802_11_BSSID )
+#define 	OID_RT_802_11_SSID						( RT_80211_START | OID_802_11_SSID )
+#define 	OID_RT_802_11_NETWORK_TYPES_SUPPORTED	( RT_80211_START | OID_802_11_NETWORK_TYPES_SUPPORTED )
+#define 	OID_RT_802_11_NETWORK_TYPE_IN_USE		( RT_80211_START | OID_802_11_NETWORK_TYPE_IN_USE )
+#define 	OID_RT_802_11_TX_POWER_LEVEL			( RT_80211_START | OID_802_11_TX_POWER_LEVEL )
+#define 	OID_RT_802_11_RSSI						( RT_80211_START | OID_802_11_RSSI )
+#define 	OID_RT_802_11_RSSI_TRIGGER				( RT_80211_START | OID_802_11_RSSI_TRIGGER )
+#define 	OID_RT_802_11_INFRASTRUCTURE_MODE		( RT_80211_START | OID_802_11_INFRASTRUCTURE_MODE )
+#define 	OID_RT_802_11_FRAGMENTATION_THRESHOLD	( RT_80211_START | OID_802_11_FRAGMENTATION_THRESHOLD )
+#define 	OID_RT_802_11_RTS_THRESHOLD				( RT_80211_START | OID_802_11_RTS_THRESHOLD )
+#define 	OID_RT_802_11_NUMBER_OF_ANTENNAS		( RT_80211_START | OID_802_11_NUMBER_OF_ANTENNAS )
+#define 	OID_RT_802_11_RX_ANTENNA_SELECTED		( RT_80211_START | OID_802_11_RX_ANTENNA_SELECTED )
+#define 	OID_RT_802_11_TX_ANTENNA_SELECTED		( RT_80211_START | OID_802_11_TX_ANTENNA_SELECTED )
+#define 	OID_RT_802_11_SUPPORTED_RATES			( RT_80211_START | OID_802_11_SUPPORTED_RATES )
+#define 	OID_RT_802_11_DESIRED_RATES			( RT_80211_START | OID_802_11_DESIRED_RATES )
+#define 	OID_RT_802_11_CONFIGURATION			( RT_80211_START | OID_802_11_CONFIGURATION )
+#define 	OID_RT_802_11_STATISTICS			( RT_80211_START | OID_802_11_STATISTICS )
+#define 	OID_RT_802_11_ADD_WEP				( RT_80211_START | OID_802_11_ADD_WEP )
+#define 	OID_RT_802_11_REMOVE_WEP			( RT_80211_START | OID_802_11_REMOVE_WEP )
+#define 	OID_RT_802_11_DISASSOCIATE			( RT_80211_START | OID_802_11_DISASSOCIATE )
+#define 	OID_RT_802_11_POWER_MODE			( RT_80211_START | OID_802_11_POWER_MODE )
+#define 	OID_RT_802_11_BSSID_LIST			( RT_80211_START | OID_802_11_BSSID_LIST )
+#define 	OID_RT_802_11_AUTHENTICATION_MODE	( RT_80211_START | OID_802_11_AUTHENTICATION_MODE )
+#define 	OID_RT_802_11_PRIVACY_FILTER		( RT_80211_START | OID_802_11_PRIVACY_FILTER )
+#define 	OID_RT_802_11_BSSID_LIST_SCAN		( RT_80211_START | OID_802_11_BSSID_LIST_SCAN )
+#define 	OID_RT_802_11_WEP_STATUS			( RT_80211_START | OID_802_11_WEP_STATUS )
+#define 	OID_RT_802_11_RELOAD_DEFAULTS		( RT_80211_START | OID_802_11_RELOAD_DEFAULTS )
+#define 	OID_RT_802_11_TEST					( RT_80211_START | OID_802_11_TEST )
+#define 	OID_RT_802_11_CAPABILITY			( RT_80211_START | OID_802_11_CAPABILITY )
+#define 	OID_RT_802_11_PMKID					( RT_80211_START | OID_802_11_PMKID )
+#define 	OID_RT_802_11_ASSOCIATION_INFORMATION		( RT_80211_START | OID_802_11_ASSOCIATION_INFORMATION )
+#define 	OID_RT_802_11_ENCRYPTION_STATUS		( RT_80211_START | OID_802_11_ENCRYPTION_STATUS )
+#define 	OID_RT_802_11_ADD_KEY				( RT_80211_START | OID_802_11_ADD_KEY )
+#define 	OID_RT_802_11_REMOVE_KEY			( RT_80211_START | OID_802_11_REMOVE_KEY )
+
+
+#endif //#ifndef	__CUSTOM_OID_H
