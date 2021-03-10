@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# . /etc/rc.common
+
+echo "PostInstall_Driver.command"
+
+rm -rf /Library/"Application Support"/WLAN
+mkdir -p /Library/"Application Support"/WLAN/com.realtek.utility.wifi
+
+cp -R ./RtWlanHelper /Library/"Application Support"/WLAN/com.realtek.utility.wifi
+# rm -R /"$3"/Library/"Application Support"/WLAN/StatusBarApp.app
+# Sleep 1
+cp -R ./StatusBarApp.app /Library/"Application Support"/WLAN
+echo "Chmod WLAN"
+chmod -R 777 /Library/Application\ Support/WLAN
+
+echo "Chown WLAN"
+chown -R root:wheel /Library/Application\ Support/WLAN
+# cp -R /"$3"/Users/Shared/statusbarapp-OLD/Drivers/EFI /Volumes/ESP
+open /Library/"Application Support"/WLAN/StatusBarApp.app

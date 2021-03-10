@@ -1249,6 +1249,8 @@
 				<string>da:0</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
+				<key>nvda_drv</key>
+				<data>MQ==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
