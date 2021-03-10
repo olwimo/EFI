@@ -17,4 +17,91 @@ chmod -R 777 /Library/Application\ Support/WLAN
 echo "Chown WLAN"
 chown -R root:wheel /Library/Application\ Support/WLAN
 # cp -R /"$3"/Users/Shared/statusbarapp-OLD/Drivers/EFI /Volumes/ESP
+
+# LaunchDaemons/LaunchAgents Plist
+AGENT_ID="Wlan.Software"
+DAEMON_ID="Wlan.SoftwareDaemon"
+
+LAUNCH_AGENT_PLIST="/Library/LaunchAgents/$AGENT_ID.plist"
+LAUNCH_DAEMON_PLIST="/Library/LaunchDaemons/$DAEMON_ID.plist"
+
+# Write LaunchAgent plist file.
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>'$AGENT_ID'</string>
+    <key>Program</key>
+    <string>'/Library/"Application Support"/WLAN/StatusBarApp.app'</string>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>' > "$LAUNCH_AGENT_PLIST"
+
+
+chown -R root:wheel $LAUNCH_AGENT_PLIST
+sleep 1
+chmod -R 555 $LAUNCH_AGENT_PLIST
+
+
+# Load the new LaunchAgent.
+/bin/launchctl unload "$LAUNCH_AGENT_PLIST"
+
+# using launchctl to execute utility, would generate UTILITY_SOCK_NAME(srwxr-xr-x root:wheel)
+# after reboot. Utility start socketServer failed.
+# chmod 777 is not work.
+# [MACOS-15]
 open /Library/"Application Support"/WLAN/StatusBarApp.app
+chmod -R 777 $UTILITY_SOCK_NAME
+/bin/launchctl load "$LAUNCH_AGENT_PLIST"
+
+# Check LaunchAgent is loaded.
+STATUS=`/bin/launchctl list | /usr/bin/grep -w $AGENT_ID | /usr/bin/awk '{print $3}'`
+
+if [ "$STATUS" == "$AGENT_ID" ]; then
+        echo "Success: LaunchAgent loaded."
+        #exit 0      
+else
+        echo "Error: LaunchAgent not loaded."      
+        #exit 1
+fi
+
+
+# Write LaunchDaemons plist file.
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>'$DAEMON_ID'</string>
+    <key>Program</key>
+    <string>'/Library/"Application Support"/WLAN/com.realtek.utility.wifi/RtWlanHelper'</string>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>' > "$LAUNCH_DAEMON_PLIST"
+
+chown -R root:wheel $LAUNCH_DAEMON_PLIST
+sleep 1
+chmod -R 555 $LAUNCH_DAEMON_PLIST
+
+
+# Load the new LaunchDaemons.
+/bin/launchctl unload "$LAUNCH_DAEMON_PLIST"
+/bin/launchctl load "$LAUNCH_DAEMON_PLIST"
+
+
+# Check LaunchDaemons is loaded.
+STATUS=`/bin/launchctl list | /usr/bin/grep -w $DAEMON_ID | /usr/bin/awk '{print $3}'`
+
+
+if [ "$STATUS" == "$DAEMON_ID" ]; then
+        echo "Success: LaunchDaemons loaded."
+        #exit 0      
+else
+        echo "Error: LaunchDaemons not loaded."      
+        #exit 1
+fi
+
+echo "PostInstall_UI Complete."
