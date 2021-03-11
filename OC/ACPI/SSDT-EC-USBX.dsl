@@ -33,8 +33,9 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "SsdtEC", 0x00001000)
      * This can make your system unbootable at any time or hide bugs that
      * could trigger randomly.
      */
-/*
+
     External (_SB_.PCI0.LPCB.H_EC, DeviceObj)
+    External (_SB_.PCI0.LPCB.H_EC.XSTA, MethodObj)
 
     Scope (\_SB.PCI0.LPCB.H_EC)
     {
@@ -46,11 +47,11 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "SsdtEC", 0x00001000)
             }
             Else
             {
-                Return (0x0F)
+                Return (\_SB.PCI0.LPCB.H_EC.XSTA())
             }
         }
     }
-*/
+
     Scope (\_SB)
     {
         Device (USBX)
