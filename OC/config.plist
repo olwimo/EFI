@@ -380,7 +380,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>WEhDXw==</data>
 				<key>Limit</key>
