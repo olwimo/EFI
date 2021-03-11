@@ -1412,9 +1412,17 @@
 			<key>IOKitDebug</key>
 			<integer>65535</integer>
 			<key>IOProviderClass</key>
-			<string>IOPCIDevice</string>
-			<key>IOPCIMatch</key>
-			<string>0x817810ec</string>
+			<string>IOUSBInterface</string>
+			<key>bConfigurationValue</key>
+			<integer>1</integer>
+			<key>bInterfaceNumber</key>
+			<integer>0</integer>
+			<key>bcdDevice</key>
+			<integer>512</integer>
+			<key>idProduct</key>
+			<integer>33144</integer>
+			<key>idVendor</key>
+			<integer>4332</integer>
 		</dict>
 		<key>RTL8192CU_8178</key>
 		<dict>
@@ -1696,22 +1704,14 @@
 		<string>1.1</string>
 		<key>com.apple.iokit.IOUSBFamily</key>
 		<string>1.8</string>
-		<key>com.apple.iokit.IOPCIFamily</key>
-		<string>1.0.0b1</string>
 		<key>com.apple.kpi.bsd</key>
 		<string>8.0.0b2</string>
-                <key>com.apple.kpi.dsep</key>
-                <string>8.0.0b2</string>
 		<key>com.apple.kpi.iokit</key>
 		<string>8.0.0b2</string>
 		<key>com.apple.kpi.libkern</key>
 		<string>8.0.0b2</string>
 		<key>com.apple.kpi.mach</key>
 		<string>8.0.0b2</string>
-                <key>com.apple.kpi.unsupported</key>
-                <string>8.0.0b2</string>
 	</dict>
-	<key>OSBundleRequired</key>
-	<string>Root</string>
 </dict>
 </plist>
