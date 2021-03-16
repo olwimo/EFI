@@ -515,7 +515,7 @@
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>AAASGQ==</data>
+				<data>AQASGQ==</data>
 				<key>framebuffer-patch-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-stolenmem</key>
@@ -524,15 +524,6 @@
 				<data>AACQAA==</data>
 				<key>device-id</key>
 				<data>GxkAAA==</data>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>name</key>
-				<data>I2Rpc3BsYXk=</data>
-				<key>IOName</key>
-				<string>#display</string>
-				<key>class-code</key>
-				<data>/////w==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -1455,13 +1446,15 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 lilucpu=8 watchdog=0 -lilubeta -vsmcbeta -wegbeta</string>
+				<string>-v keepsyms=1 debug=0x100 lilucpu=8 watchdog=0 ngfxcompat=1 -lilubeta -vsmcbeta -wegbeta</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
 				<string>da:0</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
+				<key>nvda_drv</key>
+				<data>MQ==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
