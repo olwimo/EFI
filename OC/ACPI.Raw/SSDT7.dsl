@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20200925 (64-bit version)
- * Copyright (c) 2000 - 2020 Intel Corporation
+ * AML/ASL+ Disassembler version 20190509 (64-bit version)
+ * Copyright (c) 2000 - 2019 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of SSDT7.aml, Sun Mar  7 02:59:05 2021
+ * Disassembly of SSDT7.aml, Fri Jun 25 18:34:55 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -20,19 +20,19 @@
  */
 DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Cst", 0x00003001)
 {
-    External (_PR_.C3LT, FieldUnitObj)
-    External (_PR_.C3MW, FieldUnitObj)
-    External (_PR_.C6LT, FieldUnitObj)
-    External (_PR_.C6MW, FieldUnitObj)
-    External (_PR_.C7LT, FieldUnitObj)
-    External (_PR_.C7MW, FieldUnitObj)
-    External (_PR_.CDLT, FieldUnitObj)
-    External (_PR_.CDLV, FieldUnitObj)
-    External (_PR_.CDMW, FieldUnitObj)
-    External (_PR_.CDPW, FieldUnitObj)
-    External (_PR_.CFGD, FieldUnitObj)
     External (_PR_.CPU0, DeviceObj)
-    External (PDC0, IntObj)
+    External (C3LT, IntObj)
+    External (C3MW, IntObj)
+    External (C6LT, IntObj)
+    External (C6MW, IntObj)
+    External (C7LT, IntObj)
+    External (C7MW, IntObj)
+    External (CDLT, IntObj)
+    External (CDLV, IntObj)
+    External (CDMW, IntObj)
+    External (CDPW, IntObj)
+    External (CFGD, UnknownObj)
+    External (PDC0, UnknownObj)
 
     Scope (\_PR.CPU0)
     {
@@ -145,12 +145,12 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Cst", 0x00003001)
         {
             If (!CSTF)
             {
-                C3TM [0x02] = C3LT /* \_PR_.C3LT */
-                C6TM [0x02] = C6LT /* \_PR_.C6LT */
-                C7TM [0x02] = C7LT /* \_PR_.C7LT */
-                CDTM [0x02] = CDLT /* \_PR_.CDLT */
-                CDTM [0x03] = CDPW /* \_PR_.CDPW */
-                DerefOf (CDTM [Zero]) [0x07] = CDLV /* \_PR_.CDLV */
+                C3TM [0x02] = C3LT /* External reference */
+                C6TM [0x02] = C6LT /* External reference */
+                C7TM [0x02] = C7LT /* External reference */
+                CDTM [0x02] = CDLT /* External reference */
+                CDTM [0x03] = CDPW /* External reference */
+                DerefOf (CDTM [Zero]) [0x07] = CDLV /* External reference */
                 If (((CFGD & 0x0800) && (PDC0 & 0x0200)))
                 {
                     C1TM [Zero] = MWES /* \_PR_.CPU0.MWES */
@@ -158,10 +158,10 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Cst", 0x00003001)
                     C6TM [Zero] = MWES /* \_PR_.CPU0.MWES */
                     C7TM [Zero] = MWES /* \_PR_.CPU0.MWES */
                     CDTM [Zero] = MWES /* \_PR_.CPU0.MWES */
-                    DerefOf (C3TM [Zero]) [0x07] = C3MW /* \_PR_.C3MW */
-                    DerefOf (C6TM [Zero]) [0x07] = C6MW /* \_PR_.C6MW */
-                    DerefOf (C7TM [Zero]) [0x07] = C7MW /* \_PR_.C7MW */
-                    DerefOf (CDTM [Zero]) [0x07] = CDMW /* \_PR_.CDMW */
+                    DerefOf (C3TM [Zero]) [0x07] = C3MW /* External reference */
+                    DerefOf (C6TM [Zero]) [0x07] = C6MW /* External reference */
+                    DerefOf (C7TM [Zero]) [0x07] = C7MW /* External reference */
+                    DerefOf (CDTM [Zero]) [0x07] = CDMW /* External reference */
                 }
                 ElseIf (((CFGD & 0x0800) && (PDC0 & 0x0100)))
                 {

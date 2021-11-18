@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20200925 (64-bit version)
- * Copyright (c) 2000 - 2020 Intel Corporation
+ * AML/ASL+ Disassembler version 20190509 (64-bit version)
+ * Copyright (c) 2000 - 2019 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of SSDT8.aml, Sun Mar  7 02:59:05 2021
+ * Disassembly of SSDT8.aml, Fri Jun 25 18:34:55 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -20,9 +20,9 @@
  */
 DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
 {
-    External (_PR_.CPU0._PCT, MethodObj)    // 0 Arguments
-    External (_PR_.CPU0._PPC, MethodObj)    // 0 Arguments
-    External (_PR_.CPU0._PSS, MethodObj)    // 0 Arguments
+    External (_PR_.CPU0._PCT, IntObj)
+    External (_PR_.CPU0._PPC, IntObj)
+    External (_PR_.CPU0._PSS, IntObj)
     External (_PR_.CPU1, DeviceObj)
     External (_PR_.CPU2, DeviceObj)
     External (_PR_.CPU3, DeviceObj)
@@ -30,24 +30,24 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     External (_PR_.CPU5, DeviceObj)
     External (_PR_.CPU6, DeviceObj)
     External (_PR_.CPU7, DeviceObj)
-    External (PDC0, IntObj)
+    External (PDC0, UnknownObj)
     External (TCNT, IntObj)
 
     Scope (\_PR.CPU1)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)
@@ -96,17 +96,17 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)
@@ -155,17 +155,17 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)
@@ -214,17 +214,17 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)
@@ -273,17 +273,17 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)
@@ -332,17 +332,17 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)
@@ -391,17 +391,17 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "ApIst", 0x00003000)
     {
         Method (_PPC, 0, NotSerialized)  // _PPC: Performance Present Capabilities
         {
-            Return (\_PR.CPU0._PPC ())
+            Return (\_PR.CPU0._PPC) /* External reference */
         }
 
         Method (_PCT, 0, NotSerialized)  // _PCT: Performance Control
         {
-            Return (\_PR.CPU0._PCT ())
+            Return (\_PR.CPU0._PCT) /* External reference */
         }
 
         Method (_PSS, 0, NotSerialized)  // _PSS: Performance Supported States
         {
-            Return (\_PR.CPU0._PSS ())
+            Return (\_PR.CPU0._PSS) /* External reference */
         }
 
         Name (PSDF, Zero)

@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20200925 (64-bit version)
- * Copyright (c) 2000 - 2020 Intel Corporation
+ * AML/ASL+ Disassembler version 20190509 (64-bit version)
+ * Copyright (c) 2000 - 2019 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of SSDT4.aml, Sun Mar  7 02:59:05 2021
+ * Disassembly of SSDT4.aml, Fri Jun 25 18:34:55 2021
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00005212 (21010)
  *     Revision         0x02
- *     Checksum         0x93
+ *     Checksum         0xA3
  *     OEM ID           "SaSsdt"
  *     OEM Table ID     "SaSsdt "
  *     OEM Revision     0x00003000 (12288)
@@ -71,7 +71,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     External (PCRO, MethodObj)    // Warning: Unknown method, guessing 2 arguments
     External (S0ID, UnknownObj)
 
-    OperationRegion (SANV, SystemMemory, 0x87F86D98, 0x0135)
+    OperationRegion (SANV, SystemMemory, 0x77F86D98, 0x0135)
     Field (SANV, AnyAcc, Lock, Preserve)
     {
         ASLB,   32, 
@@ -3299,7 +3299,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            If ((Arg0 == ToUUID ("3e5b41c6-eb1d-4260-9d15-c71fbadae414") /* Unknown UUID */))
+            If ((Arg0 == ToUUID ("3e5b41c6-eb1d-4260-9d15-c71fbadae414")))
             {
                 Switch (ToInteger (Arg2))
                 {
